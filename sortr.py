@@ -200,9 +200,9 @@ if __name__ == "__main__":
     print(  "this will only sort flacs/mp3s because i don't have any other formats, sorry\n")
     print(  "thank you to the people at mutagen for letting this program read id3 data\n")
 
-    # changedir = input("Do you want to change directory from default (" + directory + ")? (y/N) ")
-    # if changedir == "Y":
-    #     directory = input("Pick a directory: ")
+    changedir = input("Do you want to change directory from default (" + directory + ")? (y/N) ")
+    if changedir == "Y":
+        directory = input("Pick a directory: ")
 
     print("pick a mode:")
     print("1: move files in root dir only")
