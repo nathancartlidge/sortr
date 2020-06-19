@@ -126,7 +126,7 @@ def find(name, path, precision = 6):
 
 def thelyricimprover():
     count = 0
-    for root, dirs, files in os.walk("F:/Music/"):
+    for root, dirs, files in os.walk(directory):
         for name in files:
             if name.endswith(".lrc"):
                 with open(os.path.join(root, name), "r+") as f:
@@ -147,7 +147,7 @@ def deletebadlyrics():
     count = 0
     err = 0
 
-    for root, dirs, files in os.walk("F:/Music/lyrics/test/"):
+    for root, dirs, files in os.walk(directory + "lyrics/test/"):
         for name in files:
             if name.endswith(".lrc"):           
                 f = open(os.path.join(root, name), "r")   
@@ -167,7 +167,7 @@ def countlyrics():
     lyr = 0
     f = open("lyrics/nolyr.txt", "w")
 
-    for root, dirs, files in os.walk("F:/Music/"):
+    for root, dirs, files in os.walk(directory):
         for name in files:
             if name.endswith(".flac"):     
                 track = FLAC(os.path.join(root, name))   
@@ -190,7 +190,7 @@ def countlyrics():
                 else:
                     lyr += 1
 
-    print(str(lyr) + "with lyrics, " + str(nolyr) + " without")
+    print(str(lyr) + " with lyrics, " + str(nolyr) + " without")
     print(str(round(100 * lyr / (nolyr + lyr), 1)) + "% with lyrics")
     f.close()
 
@@ -201,8 +201,8 @@ if __name__ == "__main__":
     print(  "thank you to the people at mutagen for letting this program read id3 data\n")
 
     changedir = input("Do you want to change directory from default (" + directory + ")? (y/N) ")
-    if changedir == "Y":
-        directory = input("Pick a directory: ")
+    if changedir == "Y" or changedir == "y":
+        directory = input("Pick a directory (with trailing slash): ")
 
     print("pick a mode:")
     print("1: move files in root dir only")
